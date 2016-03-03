@@ -1,0 +1,64 @@
+{
+  "username": "project1",
+  "skills": [
+     { "eslint": 1 },
+     { "javascript": 2 },
+     { "underscore": 1 }
+  ]
+}
+{
+  "username": "project2",
+  "skills": [
+     { "jscs": 1 },
+     { "javascript": 2 },
+     { "underscore": 1 }
+  ]
+}
+{
+  "username": "project3",
+  "skills": [
+     { "eslint": 2 },
+     { "javascript": 3 },
+     { "lodash": 1 },
+     { "webpack": 1 },
+     { "react": 2 }
+  ]
+}
+{
+  "username": "project4",
+  "skills": [
+     { "jshint": 2 },
+     { "javascript": 3 },
+     { "ramda": 1 },
+     { "koa": 1 }
+  ]
+}
+{
+  "username": "project5",
+  "skills": [
+     { "laravel": 1 },
+     { "php": 2 },
+     { "composer": 1 }
+  ]
+}
+{
+  "username": "project6",
+  "skills": [
+     { "codeigniter": 2 },
+     { "php": 3 }
+  ]
+}
+{
+  "username": "project7",
+  "skills": [
+     { "python": 2 },
+     { "django": 2 }
+  ]
+}
+{
+  "username": "project8",
+  "skills": [
+     { "mocha": 1 },
+     { "javascript": 2 }
+  ]
+}
