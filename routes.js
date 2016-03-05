@@ -12,3 +12,8 @@ module.exports.listContributors = function* () {
   this.body = yield contributors.find({});
 };
 
+module.exports.listProjects = function* () {
+  const projects = wrap(db.get('projects'));
+  this.body = yield projects.find({});
+};
+
