@@ -4,6 +4,7 @@ const route = require('koa-route');
 // routes middleware
 const routes = require('./routes');
 app.use(route.get('/', routes.root));
+app.use(route.get('/contributors', routes.listContributors));
 
 // start server
 app.listen(3000);
