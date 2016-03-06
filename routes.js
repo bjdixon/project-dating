@@ -17,3 +17,8 @@ module.exports.listProjects = function* () {
   this.body = yield projects.find({});
 };
 
+module.exports.findProject = function* (name) {
+  const projects = wrap(db.get('projects'));
+  this.body = yield projects.find({ "username": name });
+}
+
