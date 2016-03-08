@@ -19,6 +19,12 @@ module.exports.listProjects = function* () {
 
 module.exports.findProject = function* (name) {
   const projects = wrap(db.get('projects'));
-  this.body = yield projects.find({ "username": name });
-}
+  this.body = yield projects.findOne({ "username": name });
+};
+
+module.exports.findContributor = function* (name) {
+  console.log(name);
+  const contributors = wrap(db.get('contributors'));
+  this.body = yield contributors.findOne({ "username": name });
+};
 

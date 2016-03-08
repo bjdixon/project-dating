@@ -6,6 +6,7 @@ const routes = require('./routes');
 
 app.use(route.get('/', routes.root));
 app.use(route.get('/contributors', routes.listContributors));
+app.use(route.get('/contributor/:name', routes.findContributor));
 app.use(route.get('/projects', routes.listProjects));
 app.use(route.get('/project/:name', routes.findProject));
 
