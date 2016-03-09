@@ -1,75 +1,32 @@
 {
   "username": "contributor1",
-  "skills": [
-     { "eslint": 1 },
-     { "javascript": 4 },
-     { "underscore": 3 },
-     { "grunt": 3 },
-     { "koa": 2 }
-  ]
+  "_id": 1
 }
 {
   "username": "contributor2",
-  "skills": [
-     { "jscs": 3 },
-     { "javascript": 4 },
-     { "underscore": 3 },
-     { "gulp": 2 },
-     { "express": 3 }
-  ]
+  "_id": 2
 }
 {
   "username": "contributor3",
-  "skills": [
-     { "eslint": 2 },
-     { "javascript": 3 },
-     { "lodash": 1 },
-     { "webpack": 2 },
-     { "react": 2 },
-     { "hapi": 2 }
-  ]
+  "_id": 3
 }
 {
   "username": "contributor4",
-  "skills": [
-     { "jshint": 4 },
-     { "javascript": 5 },
-     { "ramda": 4 },
-     { "koa": 3 }
-  ]
+  "_id": 4
 }
 {
   "username": "contributor5",
-  "skills": [
-     { "laravel": 1 },
-     { "php": 3 },
-     { "composer": 2 }
-  ]
+  "_id": 5
 }
 {
   "username": "contributor6",
-  "skills": [
-     { "codeigniter": 3 },
-     { "php": 3 }
-  ]
+  "_id": 6
 }
 {
   "username": "contributor7",
-  "skills": [
-     { "python": 3 },
-     { "javascript": 4 },
-     { "django": 3 },
-     { "flask": 3 },
-     { "koa": 2 }
-  ]
+  "_id": 7
 }
 {
   "username": "contributor8",
-  "skills": [
-     { "mocha": 1 },
-     { "javascript": 2 },
-     { "jasmine": 3 },
-     { "grunt": 2 },
-     { "jquery": 2 }
-  ]
+  "_id": 8
 }
