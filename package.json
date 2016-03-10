@@ -4,7 +4,8 @@
   "description": "Match contributors looking for projects with projects looking for contributors",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "check": "jscs ./*.js && jshint ./*.js"
   },
   "author": "Brian Dixon (bjdixon)",
   "license": "MIT",
@@ -15,7 +16,8 @@
     "koa": "^1.1.2",
     "koa-route": "^2.4.2",
     "mongodb": "~1.4.4",
-    "monk": "^1.0.1"
+    "monk": "^1.0.1",
+    "ramda": "^0.19.1"
   },
   "devDependencies": {
     "ava": "^0.12.0",
