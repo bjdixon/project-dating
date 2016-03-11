@@ -28,7 +28,7 @@ test('listContributors returns all contributors', function* (t) {
 test('filterContributors returns correct number of contributors', function* (t) {
   const response = {};
   yield routes.filterContributors.call(response, 'javascript:2,ramda:1');
-  t.true(response.body.length === 5);
+  t.true(response.body.length === 6);
 });
 
 test('filterProjects returns correct number of projects', function* (t) {

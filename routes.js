@@ -2,31 +2,44 @@ const monk = require('monk');
 const wrap = require('co-monk');
 const db = monk('localhost/github-dating');
 
-const find = function (doc, field) {
-  return function* (value) {
-    const wrappedDoc = wrap(db.get(doc));
-    const query = {};
+const simpleQuery = function (field) {
+  return function (value) {
+  const query = {};
     if (field) {
       query[field] = value;
     }
-    this.body = yield wrappedDoc.find(query);
+    return query;
   };
 };
 
-const filter = function (doc) {
-  return function* (fields) {
-    const wrappedDoc = wrap(db.get(doc));
+const logicalQuery = function (type) {
+  return function (fields) {
     const query = {};
-    query["$or"] = fields.split(',').map((field) => { 
+    query[type] = fields.split(',').map((field) => {
       var fieldQuery = {},
         keyValue = field.split(':');
       fieldQuery[keyValue[0]] = {};
-      fieldQuery[keyValue[0]]['$gt'] = +keyValue[1];
+      fieldQuery[keyValue[0]]["$gte"] = +keyValue[1];
       return fieldQuery;
     });
-    this.body = yield wrappedDoc.find(query);
+    return query;
   };
 };
+
+const crud = function (operation) {
+  return function (query) {
+    return function (doc, fieldOrType) {
+      return function* (values) {
+        const wrappedDoc = wrap(db.get(doc));
+        this.body = yield wrappedDoc[operation](query(fieldOrType)(values));
+      };
+    };
+  };
+};
+
+const get = crud("find");
+const list = get(simpleQuery);
+const filter = get(logicalQuery);
 
 const root = function* () {
   this.body = yield { text: 'hello world' };
@@ -34,10 +47,11 @@ const root = function* () {
 
 module.exports = {
   root,
-  listProjects: find('projects'),
-  findProject: find('projects', 'username'),
-  listContributors: find('contributors'),
-  findContributor: find('contributors', 'username'),
-  filterContributors: filter('contributors-skills'),
-  filterProjects: filter('projects-skills')
+  listProjects: list('projects'),
+  findProject: list('projects', 'username'),
+  listContributors: list('contributors'),
+  findContributor: list('contributors', 'username'),
+  filterContributors: filter('contributors-skills', "$or"),
+  filterProjects: filter('projects-skills', "$or")
 };
+
