@@ -27,11 +27,11 @@ const logicalQuery = function (type) {
 };
 
 const crud = function (operation) {
-  return function (query) {
+  return function (queryType) {
     return function (doc, fieldOrType) {
       return function* (values) {
         const wrappedDoc = wrap(db.get(doc));
-        this.body = yield wrappedDoc[operation](query(fieldOrType)(values));
+        this.body = yield wrappedDoc[operation](queryType(fieldOrType)(values));
       };
     };
   };
