@@ -16,13 +16,13 @@ test('findContributor returns correct contributor', function* (t) {
 test('listProjects returns all projects', function* (t) {
   const response = {};
   yield routes.listProjects.call(response);
-  t.true(response.body.length === 8);
+  t.true(response.body.length >= 8);
 });
 
 test('listContributors returns all contributors', function* (t) {
   const response = {};
   yield routes.listContributors.call(response);
-  t.true(response.body.length === 8);
+  t.true(response.body.length >= 8);
 });
 
 test('filterContributors returns correct number of contributors', function* (t) {
@@ -35,4 +35,16 @@ test('filterProjects returns correct number of projects', function* (t) {
   const response = {};
   yield routes.filterProjects.call(response, 'python:1,koa:0');
   t.true(response.body.length === 2);
+});
+
+test('addContributor adds new contributor', function* (t) {
+  const response = {};
+  yield routes.addContributor.call(response, 'contributor9');
+  t.true(response.body.username === 'contributor9');
+});
+
+test('addProject adds new project', function* (t) {
+  const response = {};
+  yield routes.addProject.call(response, 'project9');
+  t.true(response.body.username === 'project9');
 });

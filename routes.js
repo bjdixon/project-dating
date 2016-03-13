@@ -19,7 +19,7 @@ const logicalQuery = function (type) {
       var fieldQuery = {},
         keyValue = field.split(':');
       fieldQuery[keyValue[0]] = {};
-      fieldQuery[keyValue[0]]["$gte"] = +keyValue[1];
+      fieldQuery[keyValue[0]]['$gte'] = +keyValue[1];
       return fieldQuery;
     });
     return query;
@@ -37,9 +37,11 @@ const crud = function (operation) {
   };
 };
 
-const get = crud("find");
+const get = crud('find');
 const list = get(simpleQuery);
 const filter = get(logicalQuery);
+const post = crud('insert');
+const add = post(simpleQuery);
 
 const root = function* () {
   this.body = yield { text: 'hello world' };
@@ -49,9 +51,11 @@ module.exports = {
   root,
   listProjects: list('projects'),
   findProject: list('projects', 'username'),
+  filterProjects: filter('projects-skills', "$or"),
+  addContributor: add('contributors', 'username'),
+  addProject: add('projects', 'username'),
   listContributors: list('contributors'),
   findContributor: list('contributors', 'username'),
-  filterContributors: filter('contributors-skills', "$or"),
-  filterProjects: filter('projects-skills', "$or")
+  filterContributors: filter('contributors-skills', "$or")
 };
 
